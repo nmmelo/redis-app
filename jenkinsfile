@@ -13,7 +13,7 @@ pipeline{
         }
         stage('sleep para levantar o container'){
             steps{
-                sh 'sleep 30'
+                sh 'sleep 20'
             }
         }
         stage('teste da aplicação'){
