@@ -46,7 +46,7 @@ pipeline{
             steps{
                 script{
                     withCredentials([usernamePassword(credentialsId: 'nexus-user', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD' )]){
-                        sh 'docker login -u $USERNAME --password-stdin $PASSWORD http://10.2.1.11:8123'
+                        sh 'cat password.txt | docker login -u $USERNAME --password-stdin http://10.2.1.11:8123'
                         sh 'docker tag devops/app:latest http://10.2.1.11:8123/devops/app'
                         sh 'docker push http://10.2.1.11:8123/devops/app'
                     }
